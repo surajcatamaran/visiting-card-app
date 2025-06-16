@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Visiting Cards</title>
+  <style>
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+  </style>
+</head>
+<body>
+  <h2>All Visiting Cards for {{ username }}</h2>
+  <a href="/dashboard">Back to Dashboard</a> | <a href="/logout">Logout</a>
+  <br><br>
+
+  <!-- 🔍 Search box -->
+  <form method="post">
+    <input type="text" name="search" placeholder="Search by name, company, or email" value="{{ search }}">
+    <button type="submit">Search</button>
+  </form>
+
+  <!-- ⬇️ Download CSV button -->
+  <br>
+  <a href="/export"><button>⬇️ Download CSV</button></a>
+  <br><br>
+
+  <!-- 📋 Card Table -->
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Company</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Uploaded</th>
+    </tr>
+    {% for card in cards %}
+    <tr>
+      <td>{{ card[0] }}</td>
+      <td>{{ card[1] }}</td>
+      <td>{{ card[2] }}</td>
+      <td>{{ card[3] }}</td>
+      <td>{{ card[4] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
