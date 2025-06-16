@@ -3,11 +3,6 @@ from flask_login import LoginManager, login_user, logout_user, login_required, U
 from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
 import os
-
-if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run(debug=False, host='0.0.0.0', port=port)
-
 import pytesseract
 from PIL import Image
 import uuid
